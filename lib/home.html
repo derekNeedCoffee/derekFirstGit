@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .title-style {
+            text-align: center;
+        }
+
+        .main-container {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .left-section {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+        }
+
+        .right-section {
+            width: 50%;
+            background-color: royalblue;
+        }
+
+        .location {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+    <title>Tao's web home</title>
+</head>
+
+<body>
+    <div class="title-style">
+        <h1><b>Tao's web home</b></h1>
+    </div>
+    <div class="main-container" v>
+        <div class="left-section">
+            <h1>Basic Info Section </h1>
+            <p>Tao is complex.</p>
+            <flexbox class="flex-container">
+                <div class="location">
+                    <h2>Where is Tao:</h2>
+                    <button onclick="getLocation()">This is my city</button>
+                    <p id="demo"></p>
+
+
+                    <h2 style="margin-left:4px">San Carlos</h2>
+                </div>
+                <div>
+                    <h2>Time:</h2>
+                    <p>Date/Time: <span id="datetime"></span></p>
+                </div>
+                <h2>Temperature:</h2>
+                <h2>Tao's Pics</h2>
+            </flexbox>
+        </div>
+        <div class="right-section">
+            <h1>What's on Tao's Mind </h1>
+            <p>Tao is complex.</p>
+            <flexbox class="flex-container">
+                <h1> COVID-19 Data </h1>
+                <h2>Workout Plan</h2>
+                <h2>Travel Plan</h2>
+
+            </flexbox>
+        </div>
+    </div>
+</body>
+<script>
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+    }
+</script>
+
+</html>
